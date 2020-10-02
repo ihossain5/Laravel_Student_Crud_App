@@ -27,7 +27,9 @@ class StudentController extends Controller
           'phone_number'=>$request->number,
           'created_at'=>Carbon::now()
       ]); 
-      return redirect()->route('all.student')->with('success','Data added successfully');
+      notify()->success('Data added successfully');
+    // emotify('success', 'You are awesome, your data was successfully created');
+      return redirect()->route('all.student');
     }
 
     //Edit Student Data
@@ -43,26 +45,30 @@ class StudentController extends Controller
              'email'=>$request->email,
              'phone_number'=>$request->number
          ]);
-         return redirect()->route('all.student')->with('success','Data updated successfully');
+         notify()->success('Data has been updated successfully');
+         return redirect()->route('all.student');
      }
 
      //Soft Delete 
      public function SoftDelete($id){
         $delete = Student::find($id)->delete();
-        return redirect()->route('all.student')->with('success','Data moved to trash');
+        notify()->success('Data moved to trash');
+        return redirect()->route('all.student');
 
      }
 
      //Data delete Permanently
      public function PermanentDelete($id){
         $permanentDelete = Student::onlyTrashed()->find($id)->forceDelete();
-        return redirect()->back()->with('success','Data permanently deleted');
+        notify()->success('Data has been permanently deleted');
+        return redirect()->back();
      }
 
      //Restore Data
      public function Restore($id){
          $restore = Student::withTrashed()->find($id)->restore();
-         return redirect()->back()->with('success','Data has been restored');
+         notify()->success('Data has been restored');
+         return redirect()->back();
      }
 
 }

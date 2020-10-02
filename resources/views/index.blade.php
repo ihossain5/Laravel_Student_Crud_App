@@ -5,19 +5,12 @@
         <div class="row justify-content-center mt-5">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header"><h3 class="text-center">Student Crud App</h3>
+                    <div class="card-header"><h1 style="font-size:24px" class="text-center">Student Crud App</h1>
                         <a style='float:right' href="{{route('add.student')}}">
                             <button type='button' class='btn btn-primary'>Add New </button>
                         </a>
-                        </div>
+                    </div>
                     <div class="card-body">
-                    @if(session('success'))
-                       <div class="alert alert-success" role="alert">
-                          {{session('success')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                             <span aria-hidden="true">&times;</span>
-                        </div>
-                    @endif
                         <table class="table table-bordered">
                             <thead class="thead-dark">
                             <tr>
@@ -51,7 +44,7 @@
             </div>
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header"><h3>Trash List</h3>
+                    <div class="card-header"><h1 style="font-size:24px">Trash List</h1>
                         </div>
                     <div class="card-body">
                         <table class="table table-bordered">

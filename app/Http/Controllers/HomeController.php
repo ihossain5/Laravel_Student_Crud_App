@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        notify()->success('You are logged in!');
         return view('home');
     }
 }
